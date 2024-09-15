@@ -1,7 +1,7 @@
-//* gcc cpx_test.c -o cpx_tesx.exe
+//* gcc cpx_test.c -o cpx_test -lm
 
 #include<stdio.h>
-#include "libraries\cpx.h"
+#include "libraries/complex_numbers.h"
 
 int main() {
     //hello_world();
