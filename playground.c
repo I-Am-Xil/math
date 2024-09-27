@@ -1,25 +1,77 @@
-//* gcc cpx_test.c -o cpx_test -lm
-
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "libraries/complex_numbers.h"
 
+
+void superscript_selector(char c);
+
+
 int main() {
-    //hello_world();
+    char string[20];
 
-    complex c = {1.0, 1.0};
-    complex c2 = {2.0, 3.0};
+    printf("Enter a function: ");
+    fgets(string, LEN(string), stdin);
 
-    print_complex(&c);
-    c = add_complex(c, c2);
-    print_complex(&c);
-    c = mul_complex(c, c2);
-    print_complex(&c);
-    float modulus = mod_complex(c);
-    printf("%f\n", modulus);
-    c = complex_conjugate(c);
-    print_complex(&c);
-    polar cpolar = complex_to_polar(c);
-    printf("%f, %ftheta\n", cpolar.r, cpolar.theta);
+    size_t i = 0;
+    while(string[i]){
+        if(string[i] == '^' && string[i+1]){
+            superscript_selector(string[i+1]);
+            i = i+2;
+            continue;
+        }
+        printf("%c", string[i]);
+        i++;
+    }
 
     return 0;
+}
+
+
+void superscript_selector(char c){
+    switch (c) {
+        default:
+            printf("\nError code 1: '%c' is an invalid superscript\n", c);
+            exit(1);
+
+        case '1':
+            printf("%s", SUPER_ONE);
+            break;
+
+        case '2':
+            printf("%s", SUPER_TWO);
+            break;
+
+        case '3':
+            printf("%s", SUPER_THREE);
+            break;
+
+        case '4':
+            printf("%s", SUPER_FOUR);
+            break;
+
+        case '5':
+            printf("%s", SUPER_FIVE);
+            break;
+
+        case '6':
+            printf("%s", SUPER_SIX);
+            break;
+
+        case '7':
+            printf("%s", SUPER_SEVEN);
+            break;
+
+        case '8':
+            printf("%s", SUPER_EIGHT);
+            break;
+
+        case '9':
+            printf("%s", SUPER_NINE);
+            break;
+
+        case '0':
+            printf("%s", SUPER_ZERO);
+            break;
+    }
+    return;
 }

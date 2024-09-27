@@ -1,4 +1,9 @@
 #!/usr/bin/bash
 
-clang playground.c -o bin/playground -lm 
+if [ ! -d bin ]
+then
+    mkdir bin
+fi
+
+clang playground.c -o ./bin/playground -lm 
 ./bin/playground
